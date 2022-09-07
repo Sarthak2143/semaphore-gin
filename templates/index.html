@@ -1,7 +1,15 @@
 <!-- Embed the header.html template -->
 {{ template "header.html" .}}
-
-    <h1> Hello Gin </h1>
+    <!-- Looping over all the articles -->
+    {{ range .payload }}
+    <!-- Create a link of article based on its ID -->
+        <a href="/article/view/{{.ID}}">
+            <!-- Display the title of article -->
+            <h2> {{.Title}} </h2>
+        </a>
+        <!-- Display the content of article -->
+        <p> {{.Content}} </p>
+    {{ end }}
 
 <!-- Embed the footer.html template -->
 {{ template "footer.html" .}}
