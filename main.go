@@ -5,9 +5,11 @@ import (
     "github.com/gin-gonic/gin"
 )
 
+var router *gin.Engine
+
 func main() {
     // creating a router with default config
-    router := gin.Default()
+    router = gin.Default()
     // loading our html templates
     router.LoadHTMLGlob("templates/*")
     // adding routes:
