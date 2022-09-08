@@ -14,6 +14,7 @@ func main() {
     router.LoadHTMLGlob("templates/*")
     // adding routes:
     router.GET("/", showIndexPage)
+    router.GET("/article/view/:article_id", getArticle)
     // running our web server
     router.Run() // running on localhost:8080
 }
