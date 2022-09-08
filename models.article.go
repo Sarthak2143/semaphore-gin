@@ -1,9 +1,5 @@
 package main
 
-import (
-    "encoding/json"
-)
-
 type article struct {
     ID      int    `json:"id"`
     Title   string `json:"title"`
@@ -12,8 +8,8 @@ type article struct {
 
 var articleList = []article{
     // dummy data
-    article{1, "Article I", "Artcle I Content"},
-    article{2, "Article II", "Artcle II Content"},
+    article{ID: 1, Title: "Article I", Content: "Artcle I Content"},
+    article{ID: 2, Title: "Article II", Content: "Artcle II Content"},
 }
 
 func getAllArticles() []article {

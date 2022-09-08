@@ -1,7 +1,7 @@
 package main
 
 import (
-    "net/http"
+    //"net/http"
     "github.com/gin-gonic/gin"
 )
 
@@ -13,14 +13,7 @@ func main() {
     // loading our html templates
     router.LoadHTMLGlob("templates/*")
     // adding routes:
-    router.GET("/", home)
+    router.GET("/", showIndexPage)
     // running our web server
     router.Run() // running on localhost:8080
-}
-
-func home(c *gin.Context) {
-    // rendering HTML template
-    c.HTML(http.StatusOK, "index.html", gin.H{
-        "title": "Home Page",
-    })
 }

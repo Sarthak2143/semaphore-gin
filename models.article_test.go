@@ -5,7 +5,7 @@ import (
 )
 
 func TestGetAllArticles(t *testing.T) {
-    list := getAllArticles()
+    alist := getAllArticles()
     // checking length of returned and global list
     if len(alist) != len(articleList) {
         t.Fail()
