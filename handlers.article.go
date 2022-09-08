@@ -9,11 +9,9 @@ import (
 
 func showIndexPage(c *gin.Context) {
     articles := getAllArticles()
-    // rendering template
-    c.HTML(http.StatusOK, "index.html", gin.H{
+    render(c, gin.H{
         "title": "Home Page",
-        "payload": articles,
-    })
+        "payload": articles}, "index.html")
 }
 
 func getArticle(c *gin.Context) {
@@ -31,5 +29,19 @@ func getArticle(c *gin.Context) {
         }
     } else {
         c.AbortWithStatus(http.StatusNotFound)
+    }
+}
+
+func render(c *gin.Context, data gin.H, tmp string) {
+    switch c.Request.Header.Get("Accept") {
+    case "application/json":
+        // respond with json
+        c.JSON(http.StatusOK, data["payload"])
+    case "application/xml":
+        // respond with xml
+        c.XML(http.StatusOK, data["payload"])
+    default:
+        // respond with html
+        c.HTML(http.StatusOK, tmp, data)
     }
 }
