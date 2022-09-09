@@ -13,10 +13,10 @@ This application is a simple article manager. It will be able to show articles i
 
 ## Endpoints
 
-- `/` - `GET` Home page of app, displaying all articles and links to them.
+- `/`: `GET` Home page of app, displaying all articles and links to them.
 
 - `/articles`
-    - `/view/:id` - `GET` View articles by there unique ID, can render in HTML, JSON and XML. View [examples](#examples) for more info.
+    - `/view/:id`: `GET` View articles by there unique ID, can render in HTML, JSON and XML. View [examples](#examples) for more info.
 
 ## Examples
 
@@ -39,7 +39,7 @@ curl http://localhost:8080/
 
 Output:
 
-```
+```html
 <html>
 ...
 ...
@@ -74,8 +74,7 @@ Ouput:
         "id": 2,
         "title": "Article II",
         "content": "Artcle II Content"
-    },
-    ...
+    }
 ]
 ```
 
@@ -100,7 +99,7 @@ curl http://localhost:8080/article/view/1
 
 Output:
 
-```
+```html
 <html>
 ...
 <title> Article I </title>
